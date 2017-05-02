@@ -3,7 +3,8 @@
     "all": [
       "lib/**/*.js",
       "spec/**/*.spec.js",
-      "server.js"
+      "server.js",
+      "app/**"
     ],
     "spec": [
       "spec/**"

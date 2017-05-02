@@ -1,7 +1,7 @@
 {
   "default": ["nag", "test"],
-  "nag": ["jshint", "jsonlint:all", "jscs:status"],
-  "reformat": ["jscs:write"],
+  "make-standard": ["eslint:fix"],
+  "nag": ["eslint:all", "jsonlint:all"],
   "test": ["mochacli:all"],
   "server": ["shell:server"],
   "serve": ["server"],
