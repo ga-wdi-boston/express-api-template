@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
-const HttpError = require('lib/wiring/errors/http-error');
+const HttpError = require('lib/wiring/errors/http-error')
 
 const notFound = (request, response, next) => {
-  next(new HttpError(404));
-};
+  next(new HttpError(404))
+}
 
-module.exports = notFound;
+module.exports = notFound
