@@ -1,8 +1,5 @@
 'use strict'
 
-// Allow chai syntax like `expect(foo).to.be.ok;`
-// jshint -W030
-
 const chai = require('chai')
 const chaiAsPromised = require('chai-as-promised')
 
