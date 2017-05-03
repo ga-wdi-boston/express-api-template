@@ -48,7 +48,9 @@ const signup = (req, res, next) => {
   const credentials = req.body.credentials
   const user = { email: credentials.email, password: credentials.password }
   getToken()
-    .then(token => user.token = token)
+    .then(token => {
+      user.token = token
+    })
     .then(() =>
       new User(user).save())
     .then(user =>
