@@ -4,7 +4,7 @@
   "make-standard": ["eslint:fix"],
   "nag": ["eslint:all", "jsonlint:all"],
   "test": ["mochacli:all"],
-  "server": ["shell:server"],
+  "server": ["nodemon:server"],
   "serve": ["server"],
   "s": ["server"]
 }

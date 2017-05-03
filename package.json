@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "private": true,
   "scripts": {
-    "start": "./bin/express server"
+    "start": "grunt server"
   },
   "engines": {
     "node": "4.6.2"
@@ -36,7 +36,6 @@
     "grunt-mocha-cli": "^3.0.0",
     "grunt-nodemon": "^0.4.2",
     "grunt-open": "^0.2.3",
-    "grunt-shell": "^2.1.0",
     "load-grunt-config": "^0.19.2",
     "mocha": "^3.2.0",
     "supertest": "^2.0.1",
