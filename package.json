@@ -33,7 +33,6 @@
     "grunt-eslint": "^19.0.0",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-jsbeautifier": "^0.2.13",
-    "grunt-jscs": "^3.0.1",
     "grunt-jsonlint": "^1.1.0",
     "grunt-mocha-cli": "^3.0.0",
     "grunt-nodemon": "^0.4.2",
