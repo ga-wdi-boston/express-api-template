@@ -1,13 +1,14 @@
 {
   "src": {
     "all": [
+      "bin/**/*.js",
       "lib/**/*.js",
       "spec/**/*.spec.js",
       "server.js",
       "app/**"
     ],
     "spec": [
-      "spec/**"
+      "spec/**/*.spec.js"
     ],
     "lib": [
       "lib/**/*.js"
