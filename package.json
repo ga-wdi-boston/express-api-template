@@ -40,5 +40,9 @@
     "mocha": "^3.2.0",
     "supertest": "^2.0.1",
     "time-grunt": "^1.4.0"
+  },
+  "license": {
+    "software": "GNU GPLv3",
+    "content": "CC­BY­NC­SA 4.0"
   }
 }
