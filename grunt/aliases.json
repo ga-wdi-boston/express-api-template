@@ -3,7 +3,7 @@
   "test-watcher": ["mochacli:watch"],
   "make-standard": ["eslint:fix"],
   "nag": ["eslint:all", "jsonlint:all"],
-  "test": ["mochacli:all"],
+  "test": ["mochacli:test"],
   "server": ["nodemon:server"],
   "serve": ["server"],
   "s": ["server"]
