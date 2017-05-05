@@ -4,7 +4,7 @@
   },
 
   "fix": {
-    "src": ["<%= paths.src.all %>"],
+    "src": ["<%= paths.src.all %>", "<%= paths.grunt.all %>"],
     "options": {
       "fix": true
     }
