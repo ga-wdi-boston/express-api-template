@@ -1,22 +1,22 @@
-'use strict';
+'use strict'
 
-const debug = require('debug')('express-api-template:error-handler');
+const debug = require('debug')('express-api-template:error-handler')
 
 const errorHandler = (err, req, res, next) => {
-  //jshint unused:false
+  // jshint unused:false
   const errorResponse = {
     error: {
-      message: err.message,
-    },
-  };
+      message: err.message
+    }
+  }
 
   // include stacktrace
   if (req.app.get('env') === 'development') {
-    errorResponse.error.error = err;
-    debug(errorResponse);
+    errorResponse.error.error = err
+    debug(errorResponse)
   }
 
-  res.status(err.status || 500).json(errorResponse);
-};
+  res.status(err.status || 500).json(errorResponse)
+}
 
-module.exports = errorHandler;
+module.exports = errorHandler

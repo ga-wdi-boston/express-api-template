@@ -1,56 +1,56 @@
-'use strict';
+'use strict'
 
-const bcrypt = require('bcrypt');
-const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator');
+const bcrypt = require('bcrypt')
+const mongoose = require('mongoose')
+const uniqueValidator = require('mongoose-unique-validator')
 
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
     unique: true,
-    required: true,
+    required: true
   },
   token: {
     type: String,
-    required: true,
+    required: true
   },
-  passwordDigest: String,
+  passwordDigest: String
 }, {
   timestamps: true,
   toJSON: {
     virtuals: true,
     transform: function (doc, pojoUser) {
       // remove sensitive data from every user document
-      delete pojoUser.token;
-      delete pojoUser.passwordDigest;
-      return pojoUser;
-    },
+      delete pojoUser.token
+      delete pojoUser.passwordDigest
+      return pojoUser
+    }
   },
   toObject: {
-    virtuals: true,
-  },
-});
+    virtuals: true
+  }
+})
 
-userSchema.plugin(uniqueValidator);
+userSchema.plugin(uniqueValidator)
 
 userSchema.methods.comparePassword = function (password) {
-  let _this = this;
+  const _this = this
 
   return new Promise((resolve, reject) =>
     bcrypt.compare(password, _this.passwordDigest, (err, data) =>
         err ? reject(err) : data ? resolve(data) : reject(new Error('Not Authorized')))
-    ).then(() => _this);
-};
+    ).then(() => _this)
+}
 
 userSchema.virtual('password').set(function (password) {
-  this._password = password;
-});
+  this._password = password
+})
 
 userSchema.pre('save', function (next) {
-  let _this = this;
+  const _this = this
 
   if (!_this._password) {
-    return next();
+    return next()
   }
 
   new Promise((resolve, reject) =>
@@ -61,15 +61,15 @@ userSchema.pre('save', function (next) {
       bcrypt.hash(_this._password, salt, (err, data) =>
         err ? reject(err) : resolve(data)))
   ).then((digest) => {
-    _this.passwordDigest = digest;
-    next();
+    _this.passwordDigest = digest
+    next()
   }).catch((error) => {
-    next(error);
-  });
-});
+    next(error)
+  })
+})
 
 userSchema.methods.setPassword = function (password) {
-  let _this = this;
+  const _this = this
 
   return new Promise((resolve, reject) =>
     bcrypt.genSalt(null, (err, salt) =>
@@ -79,11 +79,11 @@ userSchema.methods.setPassword = function (password) {
       bcrypt.hash(password, salt, (err, data) =>
         err ? reject(err) : resolve(data)))
   ).then((digest) => {
-    _this.passwordDigest = digest;
-    return _this.save();
-  });
-};
+    _this.passwordDigest = digest
+    return _this.save()
+  })
+}
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema)
 
-module.exports = User;
+module.exports = User

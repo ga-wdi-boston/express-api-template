@@ -1,15 +1,21 @@
-'use strict';
+'use strict'
 
 const testPort = +('ga'.split('')
-  .reduce((p, c) => p + c.charCodeAt().toString(16), ''));
+  .reduce((p, c) => p + c.charCodeAt().toString(16), ''))
 
 module.exports = {
   options: {
+    files: ['<%= paths.src.spec %>'],
     env: {
       NODE_ENV: 'test',
       NODE_PATH: process.env.PWD,
-      PORT: testPort,
-    },
+      PORT: testPort
+    }
   },
-  all: ['<%= paths.src.spec %>'],
-};
+  test: {},
+  watch: {
+    options: {
+      flags: ['--watch']
+    }
+  }
+}

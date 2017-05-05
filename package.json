@@ -1,9 +1,9 @@
 {
-  "name": "express-api-template",
+  "name": "ga-wdi-boston.express-api-template",
   "version": "0.1.1",
   "private": true,
   "scripts": {
-    "start": "./bin/express server"
+    "start": "grunt server"
   },
   "engines": {
     "node": "4.6.2"
@@ -24,19 +24,23 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
+    "eslint": "^3.15.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.1",
+    "eslint-plugin-standard": "^2.0.1",
     "grunt": "^1.0.1",
     "grunt-concurrent": "^2.3.1",
-    "grunt-contrib-jshint": "^1.1.0",
-    "grunt-jsbeautifier": "^0.2.13",
-    "grunt-jscs": "^3.0.1",
+    "grunt-eslint": "^19.0.0",
     "grunt-jsonlint": "^1.1.0",
     "grunt-mocha-cli": "^3.0.0",
     "grunt-nodemon": "^0.4.2",
-    "grunt-open": "^0.2.3",
-    "grunt-shell": "^2.1.0",
     "load-grunt-config": "^0.19.2",
     "mocha": "^3.2.0",
     "supertest": "^2.0.1",
     "time-grunt": "^1.4.0"
+  },
+  "license": {
+    "software": "GNU GPLv3",
+    "content": "CC­BY­NC­SA 4.0"
   }
 }
