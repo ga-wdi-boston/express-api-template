@@ -3,10 +3,11 @@
   "version": "0.1.1",
   "private": true,
   "scripts": {
-    "start": "grunt server"
+    "start": "./bin/express server"
   },
   "engines": {
-    "node": "6.10.3"
+    "node": "6.10.3",
+    "npm": "4.5.0"
   },
   "dependencies": {
     "bcrypt": "^1.0.2",
