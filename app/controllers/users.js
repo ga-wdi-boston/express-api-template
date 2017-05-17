@@ -45,16 +45,24 @@ const makeErrorHandler = (res, next) =>
     next(error);
 
 const signup = (req, res, next) => {
-  let credentials = req.body.credentials;
-  let user = { email: credentials.email, password: credentials.password };
+  const credentials = req.body.credentials
+  const user = { email: credentials.email, password: credentials.password, confirmPassword: credentials.password_confirmation }
   getToken()
-    .then(token => user.token = token)
+    .then(token => {
+      user.token = token
+      return user
+    })
+    .then((user) => {
+      if (user.password !== user.confirmPassword) {
+        return Promise.reject(new HttpError(400))
+      }
+    })
     .then(() =>
       new User(user).save())
     .then(user =>
       res.status(201).json({ user }))
-    .catch(makeErrorHandler(res, next));
-};
+    .catch(makeErrorHandler(res, next))
+}
 
 const signin = (req, res, next) => {
   let credentials = req.body.credentials;
