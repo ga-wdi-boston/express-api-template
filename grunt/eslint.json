@@ -1,0 +1,12 @@
+{
+  "all": {
+    "src": ["<%= paths.src.all %>"]
+  },
+
+  "fix": {
+    "src": ["<%= paths.src.all %>", "<%= paths.grunt.all %>"],
+    "options": {
+      "fix": true
+    }
+  }
+}

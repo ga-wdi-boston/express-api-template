@@ -1,0 +1,10 @@
+{
+  "server": {
+    "script": "server",
+    "options": {
+      "env": {
+        "NODE_PATH": "./"
+      }
+    }
+  }
+}
