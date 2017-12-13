@@ -9,14 +9,14 @@ const mongoose = require('../app/middleware/mongoose')
 
 const options = {
   path: process.argv[2],
-  name: process.argv[3]
+  title: process.argv[3]
 }
 
 s3Upload(options)
   .then((s3Response) => {
     return Upload.create({
-      url: 'someshit',
-      title: 'somet title'
+      url: s3Response.Location,
+      title: options.title
     })
   })
   .then(console.log)
