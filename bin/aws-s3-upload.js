@@ -7,9 +7,13 @@ const s3Upload = require('../lib/s3-upload')
 const Upload = require('../app/models/upload')
 const mongoose = require('../app/middleware/mongoose')
 
+const mime = require('mime-types')
+
 const options = {
+  originalName: process.argv[2],
   path: process.argv[2],
-  title: process.argv[3]
+  title: process.argv[3],
+  mimeType: mime.lookup(process.argv[2])
 }
 
 s3Upload(options)
